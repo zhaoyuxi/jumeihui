@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorDarkRed">#E03636</color>
+    <color name="colorBrightRed">#FF534D</color>
+    <color name="colorLakeBlue">#25c6fc</color>
+    <color name="colorPrimary">#ffffff</color>
+    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="colorOrangeRed">#FF4500</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorbttonfont">#5E5E5E</color>
+    <color name="colorblue">#2196f3</color>
+    <color name="colortitle">#474747</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colororange">#FFA500</color>
+    <color name="colorpurple">#7e57c2</color>
+    <color name="colorpurple2">#B23AEE</color>
+    <color name="colorWhite">#ffffff</color>
+    <color name="white">#ffffff</color>
+    <color name="pageBackground">#ffffff</color>
+    <color name="itemBackground">#ffffff</color>
+    <color name="itemBackground1">#c7edcc</color>
+    <color name="nowhite">#EDEDED</color>
+</resources>
