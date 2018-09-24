@@ -29,6 +29,7 @@ import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
+import com.xixi.jimeihui.album.AlbumActivity;
 import com.xixi.jimeihui.allfragment.HomeFragment;
 import com.xixi.jimeihui.allfragment.PhotoFragment;
 import com.xixi.jimeihui.allfragment.UserFragment;
@@ -173,6 +174,7 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
         bottomNavigationBar.setBarBackgroundColor(R.color.pageBackground);
         bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
                 .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
+                .addItem(new BottomNavigationItem(R.mipmap.add,"发布").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
                 .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
                 .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
                 .setFirstSelectedPosition(0)
@@ -353,11 +355,14 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 ImageManager.getInstace().enter();
                 break;
             case 2:
+                startActivity(new Intent(this, AlbumActivity.class));
+                break;
+            case 3:
                 VideoManager.getInstace().enter();
                 //ft.replace(R.id.maindfragment, videoFragment).commit();
                 //mtoolbar.setTitle("聚美汇-视频");
                 break;
-            case 3:
+            case 4:
                 ft.replace(R.id.maindfragment, videoFragment).commit();
                 //mtoolbar.setTitle("聚美汇-我的");
                 break;

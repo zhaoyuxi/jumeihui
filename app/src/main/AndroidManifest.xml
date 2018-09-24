@@ -47,8 +47,17 @@
             android:parentActivityName=".MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:screenOrientation="portrait">
-
         </activity>
+        <activity
+            android:name=".album.CameraActivity"
+            android:label="@string/title_camera"
+            android:screenOrientation="portrait"
+            android:theme="@style/Album.AppTheme" />
+        <activity
+            android:name=".album.AlbumActivity"
+            android:label="@string/title_album_select"
+            android:screenOrientation="portrait"
+            android:theme="@style/Album.AppTheme" />
     </application>
 
 </manifest>
