@@ -95,7 +95,7 @@ public class VideoActivity extends AppCompatActivity {
                     public void onShowThumbnail(ImageView ivThumbnail) {
                         Glide.with(VideoActivity.this)
                                 .load(url)
-                                .error(R.color.colorPrimary)
+                                //.error(R.color.colorPrimary)?????
                                 .into(ivThumbnail);
                     }
                 })

@@ -40,6 +40,7 @@ import com.tamic.novate.Novate;
 import com.tamic.novate.Throwable;
 import com.tamic.novate.callback.ResponseCallback;
 import com.xixi.jimeihui.definition.SuperClass;
+import com.xixi.jimeihui.editor.NewActivity;
 import com.xixi.jimeihui.image.ImageActivity;
 import com.xixi.jimeihui.image.ImageManager;
 import com.xixi.jimeihui.utils.permission.BaseAppCompatActivity;
@@ -355,7 +356,8 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 ImageManager.getInstace().enter();
                 break;
             case 2:
-                startActivity(new Intent(this, AlbumActivity.class));
+                //startActivity(new Intent(this, AlbumActivity.class));
+                startActivity(new Intent(this, NewActivity.class));
                 break;
             case 3:
                 VideoManager.getInstace().enter();

@@ -66,4 +66,14 @@ dependencies {
     implementation project(':PinterestLikeAdapterView')
     implementation project(':album')
     implementation project(':xrichtext')
+
+    //图片选择器 https://github.com/donglua/PhotoPicker
+    //implementation 'me.iwf.photopicker:PhotoPicker:0.8.4@aar'
+    //知乎图片选择 https://github.com/zhihu/Matisse
+    implementation 'com.zhihu.android:matisse:0.4.3'
+
+
+    implementation 'io.reactivex:rxjava:1.3.0'
+    implementation 'io.reactivex:rxandroid:1.2.1'
+
 }

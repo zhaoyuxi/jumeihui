@@ -24,8 +24,12 @@ import com.xixi.jimeihui.utils.editor.CommonUtil;
 import com.xixi.jimeihui.utils.editor.ImageUtils;
 import com.xixi.jimeihui.utils.editor.SDCardUtil;
 import com.xixi.jimeihui.utils.editor.StringUtils;
+import com.xixi.jimeihui.utils.editor.MyGlideEngine;
 
-
+import com.zhihu.matisse.Matisse;
+import com.zhihu.matisse.MimeType;
+import com.zhihu.matisse.engine.impl.GlideEngine;
+import com.zhihu.matisse.internal.entity.CaptureStrategy;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +39,7 @@ import rx.Subscriber;
 import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-
+import com.xixi.jimeihui.R;
 /**
  * 新建笔记
  */
@@ -67,7 +71,7 @@ public class NewActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_new);
+        setContentView(R.layout.publish_activity);
 
         initView();
 
@@ -104,8 +108,6 @@ public class NewActivity extends AppCompatActivity {
 
         et_new_title = (EditText) findViewById(R.id.et_new_title);
         et_new_content = (RichTextEditor) findViewById(R.id.et_new_content);
-        tv_new_time = (TextView) findViewById(R.id.tv_new_time);
-        tv_new_group = (TextView) findViewById(R.id.tv_new_group);
 
         // 图片删除事件
         et_new_content.setOnRtImageDeleteListener(new RichTextEditor.OnRtImageDeleteListener() {
@@ -257,13 +259,11 @@ public class NewActivity extends AppCompatActivity {
     private void saveNoteData(boolean isBackground) {
         String noteTitle = et_new_title.getText().toString();
         String noteContent = getEditData();
-        String groupName = tv_new_group.getText().toString();
-        String noteTime = tv_new_time.getText().toString();
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_new, menu);
+        getMenuInflater().inflate(R.menu.menu_editor, menu);
         return true;
     }
 
@@ -427,5 +427,4 @@ public class NewActivity extends AppCompatActivity {
     public void showToast(String text) {
         Toast.makeText(this, text, Toast.LENGTH_SHORT).show();
     }
-
 }

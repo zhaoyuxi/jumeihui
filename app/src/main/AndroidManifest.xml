@@ -58,6 +58,10 @@
             android:label="@string/title_album_select"
             android:screenOrientation="portrait"
             android:theme="@style/Album.AppTheme" />
+        <activity
+            android:name=".editor.NewActivity"
+            android:label="@string/publish_title"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
     </application>
 
 </manifest>

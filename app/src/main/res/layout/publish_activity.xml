@@ -1,24 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-    Copyright 2017 Yan Zhenjie.
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/content_new"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
 
-       http://www.apache.org/licenses/LICENSE-2.0
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_new"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
--->
-<android.support.design.widget.CoordinatorLayout
-    style="@style/Album.MatchParent">
+    </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/publish_toolbar"/>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <include layout="@layout/publish_activity_list_content"/>
+        <EditText
+            android:id="@+id/et_new_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:hint="请输入标题" />
 
-</android.support.design.widget.CoordinatorLayout>
+        <ImageView
+            android:id="@+id/imageview1"
+            android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:background="#F00"
+            android:scaleType="center"
+            android:src="@drawable/updating"
+         />
+    </RelativeLayout>
+
+    <com.sendtion.xrichtext.RichTextEditor
+        android:id="@+id/et_new_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:rt_editor_image_height="500"
+        app:rt_editor_image_bottom="10"
+        app:rt_editor_text_init_hint="在这里输入内容"
+        app:rt_editor_text_size="16"
+        app:rt_editor_text_color="@color/colorAccent"/>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/fab_new"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:visibility="gone"
+        app:srcCompat="@android:drawable/ic_dialog_email" />
+</LinearLayout>
