@@ -4,8 +4,9 @@
     <color name="colorBrightRed">#FF534D</color>
     <color name="colorLakeBlue">#25c6fc</color>
     <color name="colorToolbarBackground">#25c6fc</color>
-    <color name="colorPrimary">#ffffff</color>
-    <color name="colorPrimaryDark">#ffffff</color>
+    <color name="colorCoverBackground">#2196f3</color>
+    <color name="colorPrimary">#FF0000</color>
+    <color name="colorPrimaryDark">#25c6fc</color>
     <color name="colorAccent">#FF4081</color>
     <color name="colorOrangeRed">#FF4500</color>
     <color name="colorRed">#FF0000</color>

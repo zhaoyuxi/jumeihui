@@ -17,31 +17,31 @@
             android:id="@+id/toolbar_new"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
+            android:background="@color/colorToolbarBackground"
+            android:fitsSystemWindows="true"
+            app:titleTextColor="#fff"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
 
-    <RelativeLayout
+    <EditText
+        android:id="@+id/et_new_title"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="请输入标题"
+        android:textSize="@dimen/text_size_18"
+        android:textColor="@color/color_text_black"
+        android:padding="@dimen/activity_margin_16"/>
 
-        <EditText
-            android:id="@+id/et_new_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@null"
-            android:hint="请输入标题" />
-
-        <ImageView
-            android:id="@+id/imageview1"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
-            android:background="#F00"
-            android:scaleType="center"
-            android:src="@drawable/updating"
-         />
-    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageview1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:background="@color/colorCoverBackground"
+        android:scaleType="fitXY"
+        android:src="@drawable/cover_default"
+        />
 
     <com.sendtion.xrichtext.RichTextEditor
         android:id="@+id/et_new_content"

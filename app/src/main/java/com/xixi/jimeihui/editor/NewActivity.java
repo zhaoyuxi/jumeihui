@@ -403,17 +403,17 @@ public class NewActivity extends AppCompatActivity {
     private void dealwithExit(){
         String noteTitle = et_new_title.getText().toString();
         String noteContent = getEditData();
-        String groupName = tv_new_group.getText().toString();
-        String noteTime = tv_new_time.getText().toString();
+        //String groupName = tv_new_group.getText().toString();
+       // String noteTime = tv_new_time.getText().toString();
         if (flag == 0) {//新建笔记
-            if (noteTitle.length() > 0 || noteContent.length() > 0) {
-                saveNoteData(false);
-            }
+            //if (noteTitle.length() > 0 || noteContent.length() > 0) {
+           //     saveNoteData(false);
+            //}
         }else if (flag == 1) {//编辑笔记
-            if (!noteTitle.equals(myTitle) || !noteContent.equals(myContent)
-                    || !groupName.equals(myGroupName) || !noteTime.equals(myNoteTime)) {
-                saveNoteData(false);
-            }
+            //if (!noteTitle.equals(myTitle) || !noteContent.equals(myContent)
+            //        || !groupName.equals(myGroupName) || !noteTime.equals(myNoteTime)) {
+           //     saveNoteData(false);
+           // }
         }
         finish();
     }

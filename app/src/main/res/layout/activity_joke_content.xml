@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         app:navigationIcon="@mipmap/fanhui"
         android:background="@color/colorToolbarBackground"
+        android:fitsSystemWindows="true"
         app:titleTextColor="#fff"
       ></android.support.v7.widget.Toolbar>
 
