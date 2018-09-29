@@ -159,7 +159,8 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
         bottomNavigationBar
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC
                 );
-        bottomNavigationBar.setBarBackgroundColor(R.color.pageBackground);
+        bottomNavigationBar.setBarBackgroundColor(R.color.colorBottomNavigationBarBackground);
+        //bottomNavigationBar.set
         bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
                 .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
                 .addItem(new BottomNavigationItem(R.mipmap.add,"发布").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
