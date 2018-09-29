@@ -11,6 +11,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -71,19 +72,10 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
 
     private Toolbar mtoolbar;
     private HomeFragment homeFragment;
-    private PhotoFragment photoFragment;
     private VideoFragment videoFragment;
-    private JokeFragment weiTouTiao;
-    private DrawerLayout drawerLayout;
-    private ActionBarDrawerToggle actionBarDrawerToggle;
     private NavigationView navigationView;
     private CircleImageView imageView;
     private View headerlayout;
-    private Novate novate;
-    private String username;
-    private int followers;
-    private int following;
-    private String api_token;
     private Boolean message;
     private SharedPreferences sp;
     private ShareListener mShareListener;
@@ -95,9 +87,7 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         homeFragment = new HomeFragment();
-        photoFragment = new PhotoFragment();
         videoFragment = new VideoFragment();
-        weiTouTiao = new JokeFragment();
 
         //navgationview
         navigationView = (NavigationView) findViewById(R.id.navigation_view);
@@ -159,13 +149,10 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
         //显示toolbar
         mtoolbar = (Toolbar) findViewById(R.id.toolbar);
         mtoolbar.setTitle("聚美汇");
+        int color = ContextCompat.getColor(getBaseContext(),R.color.colorToolbarTitle);
+        mtoolbar.setTitleTextColor(color);
         setSupportActionBar(mtoolbar);
         //mtoolbar.setBackgroundColor(Color.parseColor(sp.getString("theme", "#3F51B5")));
-        //绑定侧边栏
-        drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawerLayout, mtoolbar, R.string.drawer_open, R.string.drawer_close);
-        actionBarDrawerToggle.syncState();
-        drawerLayout.addDrawerListener(actionBarDrawerToggle);
         //显示底部导航
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
@@ -173,11 +160,11 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC
                 );
         bottomNavigationBar.setBarBackgroundColor(R.color.pageBackground);
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
-                .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
-                .addItem(new BottomNavigationItem(R.mipmap.add,"发布").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
-                .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
-                .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
+        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.add,"发布").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
                 .setFirstSelectedPosition(0)
                 .initialise();
         setDefaultFragment();
@@ -205,66 +192,6 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 Toast.makeText(MainActivity.this, "取消分享", Toast.LENGTH_SHORT).show();
             }
         };
-
-        //侧边栏NavgationView的监听
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                item.setChecked(false);//设置选项是否选中
-                item.setCheckable(false);//选项是否可选
-                switch (item.getItemId()) {
-                    case R.id.item_setting:
-                        if (message) {
-                            startActivity(new Intent(MainActivity.this, UserSetting.class));
-                        } else {
-                            alert_info();
-                        }
-                        break;
-                    case R.id.item_theme:
-                        if (message) {
-                            dialog = new BottomSheetDialog(MainActivity.this);
-                            View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.theme_choose, null);
-                            dialog.setContentView(view);
-                            dialog.show();
-                            theme_choose(view);
-                        } else {
-                            alert_info();
-                        }
-                        break;
-                    case R.id.item_love:
-                        if (message) {
-                        } else {
-                            alert_info();
-                        }
-                        break;
-                    case R.id.item_share:
-                        if (message) {
-                            dialog = new BottomSheetDialog(MainActivity.this);
-                            View view = LayoutInflater.from(MainActivity.this).inflate(R.layout.user_share, null);
-                            dialog.setContentView(view);
-                            dialog.show();
-                            user_share(view, dialog);
-                        } else {
-                            alert_info();
-                        }
-                        break;
-                    case R.id.logout:
-                        if (message) {
-                            new AlertDialog.Builder(MainActivity.this).setTitle("退出登录").setMessage("确认退出登录吗?").setNegativeButton("取消", null).setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                                @Override
-                                public void onClick(DialogInterface dialog, int which) {
-                                    logout();
-                                }
-                            }).show();
-                        } else {
-                            alert_info();
-                        }
-                        break;
-                }
-                drawerLayout.closeDrawers();
-                return true;
-            }
-        });
 
         //底部导航监听事件
         bottomNavigationBar.setTabSelectedListener(this);
@@ -386,10 +313,6 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.profile_image_before:
-                drawerLayout.closeDrawers();//关闭navigationview
-                startActivity(new Intent(this, UserLoginAndRegister.class));//启动用户登录界面
-                break;
             case R.id.share_qq:
                 ShareUtil.shareImage(MainActivity.this, SharePlatform.QQ,
                         "http://shaohui.me/images/avatar.gif", mShareListener);

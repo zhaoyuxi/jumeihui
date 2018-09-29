@@ -9,6 +9,7 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -69,6 +70,7 @@ public class BaseActivity extends BaseAppCompatActivity implements BottomNavigat
         //显示toolbar
         mtoolbar = (Toolbar) findViewById(R.id.toolbar);
         mtoolbar.setTitle("聚美汇");
+        mtoolbar.setTitleTextColor(ContextCompat.getColor(getBaseContext(),R.color.colorToolbarTitle));
         setSupportActionBar(mtoolbar);
         //显示底部导航
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
@@ -77,10 +79,10 @@ public class BaseActivity extends BaseAppCompatActivity implements BottomNavigat
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC
                 );
         bottomNavigationBar.setBarBackgroundColor(R.color.white);
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
-                .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
-                .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
-                .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorRed))
+        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
+                .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
                 .setFirstSelectedPosition(pos)
                 .initialise();
 
