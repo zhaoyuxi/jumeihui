@@ -147,11 +147,11 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
 
     public void initView() {
         //显示toolbar
-        mtoolbar = (Toolbar) findViewById(R.id.toolbar);
-        mtoolbar.setTitle("聚美汇");
+        //mtoolbar = (Toolbar) findViewById(R.id.toolbar);
+        //mtoolbar.setTitle("");
         int color = ContextCompat.getColor(getBaseContext(),R.color.colorToolbarTitle);
-        mtoolbar.setTitleTextColor(color);
-        setSupportActionBar(mtoolbar);
+       // mtoolbar.setTitleTextColor(color);
+       // setSupportActionBar(mtoolbar);
         //mtoolbar.setBackgroundColor(Color.parseColor(sp.getString("theme", "#3F51B5")));
         //显示底部导航
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
@@ -161,11 +161,11 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 );
         bottomNavigationBar.setBarBackgroundColor(R.color.colorBottomNavigationBarBackground);
         //bottomNavigationBar.set
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
-                .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
-                .addItem(new BottomNavigationItem(R.mipmap.add,"发布").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
-                .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
-                .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorAccent))
+        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
+                .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
+                .addItem(new BottomNavigationItem(R.mipmap.add,"发布").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
+                .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
+                .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
                 .setFirstSelectedPosition(0)
                 .initialise();
         setDefaultFragment();
@@ -340,8 +340,8 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 dialog.hide();
                 break;
             case R.id.theme_black:
-                mtoolbar.setBackgroundColor(Color.parseColor("#000000"));
-                editor.putString("theme", "#000000");
+                //mtoolbar.setBackgroundColor(Color.parseColor("#000000"));
+                //editor.putString("theme", "#000000");
                 editor.commit();
                 break;
             case R.id.theme_blue:

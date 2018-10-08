@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/colorToolbarBackground"
-    app:titleTextColor="@color/colortitle"
+    app:titleTextColor="@color/colorPageTabText"
+    app:titleTextAppearance="@style/Toolbar.TitleText"
     android:textSize="12dp">
 </android.support.v7.widget.Toolbar>

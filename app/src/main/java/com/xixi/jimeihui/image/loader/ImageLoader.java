@@ -88,16 +88,22 @@ public class ImageLoader {
         executorService=Executors.newFixedThreadPool(2);
 		mPoolSemaphore = new Semaphore(24);
 		mTasks = new LinkedList<Runnable>();
+		mPoolThreadHander = new Handler() {
+			@Override
+			public void handleMessage(Message msg) {
+				executorService.execute(getTask());
+			}
+		};
 		mPoolThread = new Thread() {
 			@Override
 			public void run() {
 				Looper.prepare();
-				mPoolThreadHander = new Handler() {
-					@Override
-					public void handleMessage(Message msg) {
-						executorService.execute(getTask());
-					}
-				};
+//				mPoolThreadHander = new Handler() {
+//					@Override
+//					public void handleMessage(Message msg) {
+//						executorService.execute(getTask());
+//					}
+//				};
 
 				Looper.loop();
 			}
