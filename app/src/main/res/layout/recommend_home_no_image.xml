@@ -34,12 +34,11 @@
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:maxLines="3"
-                    android:textSize="14dp"
+                    android:textSize="16dp"
                     android:lineSpacingExtra="3dp"
                     android:paddingTop="4dp"
-                    android:textColor="@color/colorPageTabText"
-                    android:text="菲总统称中国将向菲提供武器 已指示军方前往接收"
-                    android:textStyle="bold" />
+                    android:textColor="@color/homeTitle"
+                    android:text="菲总统称中国将向菲提供武器 已指示军方前往接收" />
             </LinearLayout>
 
             <TextView
@@ -50,7 +49,7 @@
                 android:maxLines="1"
                 android:layout_marginTop="4dp"
                 android:text="新闻源 - 2222条评论"
-                android:textAppearance="@style/TextAppearance.AppCompat.Caption" />
+                android:textSize="12dp"  />
 
         </LinearLayout>
     </RelativeLayout>

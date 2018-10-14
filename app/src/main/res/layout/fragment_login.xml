@@ -33,8 +33,7 @@
             android:paddingBottom="10dp"
             android:text="聚美汇"
             android:textColor="@color/white"
-            android:textSize="35dp"
-            android:textStyle="bold" />
+            android:textSize="35dp" />
 
         <TextView
             android:layout_width="match_parent"
@@ -87,7 +86,7 @@
             app:met_textColorHint="#F5F5F5"
             android:textSize="15dp"
             app:met_baseColor="@color/white"
-            app:met_errorColor="@color/colorAccent"
+            app:met_errorColor="@color/naviTabUnselectedText"
             app:met_floatingLabel="highlight"
             app:met_floatingLabelAnimating="true"
             app:met_primaryColor="@color/white"
@@ -145,7 +144,7 @@
             android:paddingRight="10dp"
             android:text="Register"
             android:textAllCaps="false"
-            android:textColor="@color/colorAccent" />
+            android:textColor="@color/naviTabUnselectedText" />
     </LinearLayout>
 
     <LinearLayout

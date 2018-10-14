@@ -34,12 +34,11 @@
                     android:ellipsize="end"
                     android:maxLines="2"
                     android:lineSpacingExtra="3dp"
-                    android:textSize="17dp"
+                    android:textSize="18dp"
                     android:paddingLeft="7dp"
                     android:paddingTop="5dp"
-                    android:textColor="@color/colorPageTabText"
-                    android:text="菲总统称中国将向菲提供武器 已指示军方前往接收"
-                    android:textStyle="bold" />
+                    android:textColor="@color/pageTabUnselectedText"
+                    android:text="菲总统称中国将向菲提供武器 已指示军方前往接收" />
             </LinearLayout>
 
             <LinearLayout

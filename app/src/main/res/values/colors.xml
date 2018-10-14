@@ -3,22 +3,37 @@
     <color name="colorDarkRed">#E03636</color>
     <color name="colorBrightRed">#FF534D</color>
     <color name="colorLakeBlue">#25c6fc</color>
-    <color name="colorToolbarTitle">#ffffff</color>
-    <color name="colorToolbarBackground">#0A9FFD</color>
-    <color name="colorPageTabText1">#4c4c4c</color>
+    <color name="colorToolbarBackground">#00BFFF</color>
+    <color name="colorCoverBackground">#00BFFF</color>
+    <!--控制各个控件被选中时的颜色-->
+    <color name="colorAccent">#00BFFF</color>
+    <!--状态栏颜色-->
+    <color name="colorPrimaryDark">#00BFFF</color>
     <color name="colorPageBackground">#ffffff</color>
-    <color name="colorBottomNavigationBarBackground">#fafafa</color>
-    <color name="colorCoverBackground">#0A9FFD</color>
-    <color name="colorSelectedTextColor">#25c6fc</color>
-    <color name="colorPrimary">#FA5E48</color>
-    <color name="colorPrimaryDark">#0A9FFD</color>
-    <color name="colorAccent">#ffffff</color>
+    <color name="colorToolbarTitle">#ffffff</color>
+    <color name="colorBottomNavigationBarBackground">#F5F5F5</color>
+
+
+    <!--页面背景色-->
+    <color name="windowBackground">#ffffff</color>
+    <!--底部导航栏颜色-->
+    <color name="navigationBarColor">#ffffff</color>
+    <!--Appbar背景色-->
+    <color name="colorPrimary">#ffffff</color>
+    <!--ToolBar上的Title颜色-->
+    <color name="textColorPrimary">#ffffff</color>
+    <!--各个控制控件的默认颜色-->
+    <color name="colorControlNormal">#ffffff</color>
+
+    <color name="pageTabSelectedText">#000000</color>
+    <color name="homeTitle">#000000</color>
+    <color name="pageTabUnselectedText">#696969</color>
+    <color name="naviTabUnselectedText">#696969</color>
+    <color name="naviTabSelectedText">#000000</color>
+    <color name="homeComments">#8c8c8c</color>
     <color name="colorOrangeRed">#FF4500</color>
     <color name="colorRed">#FF0000</color>
-    <color name="colorbttonfont">#5E5E5E</color>
-    <color name="colorblue">#2196f3</color>
-    <color name="colorPageTabText">#474747</color>
-    <color name="colorBottomNavigationBarText">#000000</color>
+    <color name="colorblue">#2196f3</color>>
     <color name="colororange">#FFA500</color>
     <color name="colorpurple">#7e57c2</color>
     <color name="colorpurple2">#B23AEE</color>

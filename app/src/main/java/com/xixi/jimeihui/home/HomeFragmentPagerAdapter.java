@@ -10,7 +10,7 @@ import com.xixi.jimeihui.allfragment.PageFragment;
 
 
 public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
-    private String[] titles = new String[]{"关注","推荐","论坛"};
+    private String[] titles = new String[]{"关注","推荐","知识","游玩","美食","心灵鸡汤","养生","汽车"};
     private Context context;
 
     public HomeFragmentPagerAdapter(FragmentManager fm, Context context) {

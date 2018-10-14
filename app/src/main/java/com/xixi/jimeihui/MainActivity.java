@@ -2,21 +2,15 @@ package com.xixi.jimeihui;
 
 import android.Manifest;
 import android.app.Activity;
-import android.app.FragmentManager;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
 import android.support.design.widget.BottomSheetDialog;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
@@ -24,32 +18,20 @@ import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.xixi.jimeihui.album.AlbumActivity;
-import com.xixi.jimeihui.allfragment.HomeFragment;
-import com.xixi.jimeihui.allfragment.PhotoFragment;
-import com.xixi.jimeihui.allfragment.UserFragment;
 import com.xixi.jimeihui.allfragment.VideoFragment;
-import com.xixi.jimeihui.allfragment.JokeFragment;
-import com.xixi.jimeihui.R;
-import com.tamic.novate.Novate;
-import com.tamic.novate.Throwable;
-import com.tamic.novate.callback.ResponseCallback;
 import com.xixi.jimeihui.definition.SuperClass;
 import com.xixi.jimeihui.editor.NewActivity;
-import com.xixi.jimeihui.image.ImageActivity;
+import com.xixi.jimeihui.home.HomeFragment;
 import com.xixi.jimeihui.image.ImageManager;
 import com.xixi.jimeihui.utils.permission.BaseAppCompatActivity;
 import com.xixi.jimeihui.utils.permission.PermissionListener;
 import com.xixi.jimeihui.utils.ui.SwiftAdaptor;
 import com.xixi.jimeihui.video.VideoManager;
-
-import org.json.JSONObject;
 
 import java.util.List;
 
@@ -59,8 +41,7 @@ import me.shaohui.shareutil.ShareManager;
 import me.shaohui.shareutil.ShareUtil;
 import me.shaohui.shareutil.share.ShareListener;
 import me.shaohui.shareutil.share.SharePlatform;
-import okhttp3.Call;
-import okhttp3.ResponseBody;
+
 public class
 
 
@@ -81,6 +62,7 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
     private ShareListener mShareListener;
     private BottomSheetDialog dialog;
     private SharedPreferences.Editor editor;
+    private int lastSelectedButtomTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -147,12 +129,11 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
 
     public void initView() {
         //显示toolbar
-        //mtoolbar = (Toolbar) findViewById(R.id.toolbar);
-        //mtoolbar.setTitle("");
+        mtoolbar = (Toolbar) findViewById(R.id.toolbar);
+        mtoolbar.setTitle(R.string.home_title);
         int color = ContextCompat.getColor(getBaseContext(),R.color.colorToolbarTitle);
-       // mtoolbar.setTitleTextColor(color);
-       // setSupportActionBar(mtoolbar);
-        //mtoolbar.setBackgroundColor(Color.parseColor(sp.getString("theme", "#3F51B5")));
+        mtoolbar.setTitleTextColor(color);
+        setSupportActionBar(mtoolbar);
         //显示底部导航
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
@@ -160,14 +141,14 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 .setBackgroundStyle(BottomNavigationBar.BACKGROUND_STYLE_STATIC
                 );
         bottomNavigationBar.setBarBackgroundColor(R.color.colorBottomNavigationBarBackground);
-        //bottomNavigationBar.set
-        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
-                .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
-                .addItem(new BottomNavigationItem(R.mipmap.add,"发布").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
-                .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
-                .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.colorbttonfont).setActiveColorResource(R.color.colorBottomNavigationBarText))
+        bottomNavigationBar.addItem(new BottomNavigationItem(R.mipmap.home2, "主页").setInActiveColor(R.color.naviTabUnselectedText).setActiveColorResource(R.color.naviTabSelectedText))
+                .addItem(new BottomNavigationItem(R.mipmap.photo, "图册").setInActiveColor(R.color.naviTabUnselectedText).setActiveColorResource(R.color.naviTabSelectedText))
+                .addItem(new BottomNavigationItem(R.mipmap.add,"发布").setInActiveColor(R.color.naviTabUnselectedText).setActiveColorResource(R.color.naviTabSelectedText))
+                .addItem(new BottomNavigationItem(R.mipmap.play, "视频").setInActiveColor(R.color.naviTabUnselectedText).setActiveColorResource(R.color.naviTabSelectedText))
+                .addItem(new BottomNavigationItem(R.mipmap.user, "我的").setInActiveColor(R.color.naviTabUnselectedText).setActiveColorResource(R.color.naviTabSelectedText))
                 .setFirstSelectedPosition(0)
                 .initialise();
+        lastSelectedButtomTab = 0;
         setDefaultFragment();
 
         //初始化Listener
@@ -196,15 +177,6 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
 
         //底部导航监听事件
         bottomNavigationBar.setTabSelectedListener(this);
-    }
-
-    //主题选择
-    private void theme_choose(View view) {
-        view.findViewById(R.id.theme_black).setOnClickListener(this);
-        view.findViewById(R.id.theme_blue).setOnClickListener(this);
-        view.findViewById(R.id.theme_pink).setOnClickListener(this);
-        view.findViewById(R.id.theme_purple).setOnClickListener(this);
-        view.findViewById(R.id.theme_yellow).setOnClickListener(this);
     }
 
     //用户分享
@@ -277,24 +249,29 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         switch (position) {
             case 0:
-               // mtoolbar.setTitle("聚美汇-主页");
                 ft.replace(R.id.maindfragment, homeFragment).commit();
+                lastSelectedButtomTab = position;
                 break;
             case 1:
                 ImageManager.getInstace().enter();
+                lastSelectedButtomTab = position;
                 break;
             case 2:
                 //startActivity(new Intent(this, AlbumActivity.class));
                 startActivity(new Intent(this, NewActivity.class));
+                BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
+                bottomNavigationBar.setFirstSelectedPosition(lastSelectedButtomTab);
                 break;
             case 3:
                 VideoManager.getInstace().enter();
                 //ft.replace(R.id.maindfragment, videoFragment).commit();
                 //mtoolbar.setTitle("聚美汇-视频");
+                lastSelectedButtomTab = position;
                 break;
             case 4:
                 ft.replace(R.id.maindfragment, videoFragment).commit();
                 //mtoolbar.setTitle("聚美汇-我的");
+                lastSelectedButtomTab = position;
                 break;
         }
     }

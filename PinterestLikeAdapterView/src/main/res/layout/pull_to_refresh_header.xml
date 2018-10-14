@@ -51,7 +51,6 @@
                 android:includeFontPadding="false"
                 android:paddingTop="3dp"
                 android:textColor="#999999"
-                android:textStyle="bold"
                 android:visibility="gone" />
         </LinearLayout>
 

@@ -45,7 +45,7 @@
         android:layout_marginTop="20dp"
         android:paddingLeft="10dp"
         android:textSize="18dp"
-        android:textColor="@color/colorPageTabText"
+        android:textColor="@color/pageTabUnselectedText"
         android:paddingRight="10dp"
         android:text="别人用十块钱杜蕾斯，100块钱开房费，拿走你的第一次，我为何要用一套房，一台车把你娶进门？？女人，请自重"
         android:layout_width="match_parent"
