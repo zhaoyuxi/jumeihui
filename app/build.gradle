@@ -35,6 +35,9 @@ dependencies {
     api('com.dou361.ijkplayer:jjdxm-ijkplayer:1.0.5') {
         exclude group: 'com.android.support', module: 'appcompat-v7'
     }
+    testImplementation('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
     //最小版本21
     //最小版本21
     api 'com.android.support:appcompat-v7:27.1.1'
@@ -75,5 +78,7 @@ dependencies {
 
     implementation 'io.reactivex:rxjava:1.3.0'
     implementation 'io.reactivex:rxandroid:1.2.1'
+
+    implementation 'com.facebook.fresco:fresco:0.14.1'
 
 }
