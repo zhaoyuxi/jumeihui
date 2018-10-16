@@ -25,20 +25,23 @@
             android:paddingTop="5dp"
             android:orientation="vertical"
             >
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/user_avatar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                fresco:actualImageScaleType="centerCrop"
-                />
+            <!--  <com.facebook.drawee.view.SimpleDraweeView -->
+            <com.xixi.jimeihui.image.ScaleImageView
+               android:id="@+id/user_avatar"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               fresco:actualImageScaleType="centerCrop"
+               android:scaleType="centerCrop"
+            />
+            <!--   android:layout_centerVertical="true" android:adjustViewBounds="true" -->
 
-            <TextView
-                android:id="@+id/user_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="center"
-                />
-        </LinearLayout>
-    </android.support.v7.widget.CardView>
+        <TextView
+            android:id="@+id/user_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            />
+    </LinearLayout>
+</android.support.v7.widget.CardView>
 </LinearLayout>

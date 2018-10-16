@@ -27,6 +27,7 @@ public class ImagePageFragmentPage extends Fragment {
     private RecyclerView.LayoutManager mLayoutManager;
     private WaterFallAdapter mAdapter;
     private List<PictureCard> imageUrls;
+    private final int gridNumber = 2;
 
     public static ImagePageFragmentPage newInstance() {
         ImagePageFragmentPage fragment = new ImagePageFragmentPage();
@@ -38,8 +39,8 @@ public class ImagePageFragmentPage extends Fragment {
         imageUrls = queryMediaImages();
         mRecyclerView = (RecyclerView) view.findViewById(R.id.rv);
         //设置布局管理器为2列，纵向
-        mLayoutManager = new StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL);
-        mAdapter = new WaterFallAdapter(getContext(), imageUrls);
+        mLayoutManager = new StaggeredGridLayoutManager(gridNumber, StaggeredGridLayoutManager.VERTICAL);
+        mAdapter = new WaterFallAdapter(gridNumber, getContext(), imageUrls);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
         mAdapter.notifyDataSetChanged();

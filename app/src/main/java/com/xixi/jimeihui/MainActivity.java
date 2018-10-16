@@ -102,6 +102,18 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 finish();
             }
         });
+        requestRunPermisssion(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, new PermissionListener() {
+            @Override
+            public void onGranted() {
+                System.out.print("Get the WRITE_EXTERNAL_STORAGE");
+            }
+
+            @Override
+            public void onDenied(List<String> deniedPermission) {
+                System.out.print("Deny the WRITE_EXTERNAL_STORAGE");
+                finish();
+            }
+        });
     }
     //获取用户信息并且判断是否登录
     private void get_info() {
