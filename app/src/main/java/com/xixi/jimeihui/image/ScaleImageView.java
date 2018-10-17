@@ -162,7 +162,7 @@ public class ScaleImageView extends SimpleDraweeView {
         srcHeight = options.outHeight;
         srcWidth = options.outWidth;
         scale = srcHeight/srcWidth;
-        super.setImageURI(uri, null);
+        super.setImageURI(uri);
     }
 
     public static String getFilePath( final Context context, final Uri uri ) {
