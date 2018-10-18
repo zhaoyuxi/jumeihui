@@ -19,7 +19,7 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-        /*
+
         def listSubFile = {
             def resFolder = 'src/main/res/layout'
             def files = file(resFolder).listFiles()
@@ -31,13 +31,13 @@ android {
             return folders
 
         }
-        */
+
     }
     sourceSets {
         main {
             res.srcDirs = [
-                    'src/main/res/layouts/follow',
-                    'src/main/res/layouts',
+                    'src/main/res/layout/follow',
+                    'src/main/res/layout',
                     'src/main/res'
             ]
         }
