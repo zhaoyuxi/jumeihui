@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.LayoutInflater;
@@ -13,8 +14,10 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.xixi.jimeihui.R;
+import com.xixi.jimeihui.bean.Follow;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -23,11 +26,16 @@ import java.util.List;
  */
 public class ImagePageFragmentPage extends Fragment {
     private View view;
-    private RecyclerView mRecyclerView;
-    private RecyclerView.LayoutManager mLayoutManager;
-    private WaterFallAdapter mAdapter;
+    private RecyclerView mImageRecyclerView;
+    private RecyclerView.LayoutManager mImageLayoutManager;
+    private WaterFallAdapter mImageAdapter;
     private List<PictureCard> imageUrls;
-    private final int gridNumber = 2;
+    private final int imageGridNumber = 2;
+
+    private RecyclerView mFollowRecyclerView;
+    private RecyclerView.LayoutManager mFollowLayoutManager;
+    private FollowAdapter mFollowAdapter;
+    private List<Follow> mFollowsData;
 
     public static ImagePageFragmentPage newInstance() {
         ImagePageFragmentPage fragment = new ImagePageFragmentPage();
@@ -35,20 +43,40 @@ public class ImagePageFragmentPage extends Fragment {
     }
 
 
-    private void initView(View view) {
-        imageUrls = queryMediaImages();
-        mRecyclerView = (RecyclerView) view.findViewById(R.id.rv);
+    private void initImageView(View view) {
+        mImageRecyclerView = (RecyclerView) view.findViewById(R.id.pic_rv);
         //设置布局管理器为2列，纵向
-        mLayoutManager = new StaggeredGridLayoutManager(gridNumber, StaggeredGridLayoutManager.VERTICAL);
-        mAdapter = new WaterFallAdapter(gridNumber, getContext(), imageUrls);
-        mRecyclerView.setLayoutManager(mLayoutManager);
-        mRecyclerView.setAdapter(mAdapter);
-        mAdapter.notifyDataSetChanged();
+        mImageLayoutManager = new StaggeredGridLayoutManager(imageGridNumber, StaggeredGridLayoutManager.VERTICAL);
+        mImageAdapter = new WaterFallAdapter(imageGridNumber, getContext(), imageUrls);
+        mImageRecyclerView.setLayoutManager(mImageLayoutManager);
+        mImageRecyclerView.setAdapter(mImageAdapter);
+        mImageAdapter.notifyDataSetChanged();
+    }
+    private void initFollowView(View view) {
+        mFollowRecyclerView = (RecyclerView) view.findViewById(R.id.follow_rv);
+        mFollowLayoutManager = new LinearLayoutManager(getContext());
+        ((LinearLayoutManager) mFollowLayoutManager).setOrientation(LinearLayoutManager.HORIZONTAL);
+        mFollowsData = new LinkedList<Follow>();
+        for (PictureCard card :  imageUrls) {
+            Follow follow = new Follow();
+            follow.setHeadImage(card.avatarUrl);
+            follow.setName(card.name);
+            mFollowsData.add(follow);
+            if (mFollowsData.size() > 10) {
+                break;
+            }
+        }
+        mFollowAdapter = new FollowAdapter(getContext(), mFollowsData);
+        mFollowRecyclerView.setLayoutManager(mFollowLayoutManager);
+        mFollowRecyclerView.setAdapter(mFollowAdapter);
+        mFollowAdapter.notifyDataSetChanged();
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.image_fragment_page, container, false);
-        initView(view);
+        imageUrls = queryMediaImages();
+        initFollowView(view);
+        initImageView(view);
         return view;
     }
     public List<PictureCard> queryMediaImages() {

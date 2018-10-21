@@ -7,7 +7,7 @@
       <module fileurl="file://$PROJECT_DIR$/album/album.iml" filepath="$PROJECT_DIR$/album/album.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/comment/comment.iml" filepath="$PROJECT_DIR$/comment/comment.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jimeihui.iml" filepath="$PROJECT_DIR$/jimeihui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jumeihui.iml" filepath="$PROJECT_DIR$/jumeihui.iml" />
       <module fileurl="file://$PROJECT_DIR$/xrichtext/xrichtext.iml" filepath="$PROJECT_DIR$/xrichtext/xrichtext.iml" />
     </modules>
   </component>
