@@ -90,7 +90,7 @@ public class ImagePageFragmentPage extends Fragment {
                     Uri imageUri = Uri.parse( MediaStore.Images.Media.EXTERNAL_CONTENT_URI + "/" + id );
                     PictureCard card = new PictureCard();
                     card.avatarUrl = imageUri.toString();
-                    card.name = "冰冰";
+                    card.name = "还在追梦的老男人";
                     card.imgHeight = 200;
                     card.imgHeight = (index++ % 2)*100 + 400; //偶数和奇数的图片设置不同的高度，以到达错开的目的
                     imageUrls.add(card);

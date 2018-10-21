@@ -2,8 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:id="@+id/follow_item"
-    android:layout_width="64dp"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <com.xixi.jimeihui.image.ScaleImageView
         android:id="@+id/follow_head_image"
@@ -11,12 +11,19 @@
         android:layout_height="wrap_content"
         fresco:actualImageScaleType="centerCrop"
         android:scaleType="centerCrop"
+        android:gravity="center"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
         />
     <TextView
         android:id="@+id/follow_name"
-        android:layout_width="64dp"
+        android:layout_width="72dp"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
         android:gravity="center"
-        android:text="XIXI"/>
+        android:layout_gravity="center_horizontal"
+        android:text="XIXI"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"/>
 </LinearLayout>

@@ -8,11 +8,15 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/follow_rv"
         android:layout_width="match_parent"
-        android:layout_height="72dp"
-        android:orientation="horizontal"></android.support.v7.widget.RecyclerView>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    </android.support.v7.widget.RecyclerView>
     <android.support.v7.widget.RecyclerView
         android:id="@+id/pic_rv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"></android.support.v7.widget.RecyclerView>
+        android:orientation="vertical">
+
+    </android.support.v7.widget.RecyclerView>
 </LinearLayout>
