@@ -1,8 +1,15 @@
 <resources>
+
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
+    <style name="ToolbarStyle" parent="Base.Widget.AppCompat.Toolbar">
+        <item name="titleTextAppearance">@style/Toolbar.TitleText</item>
+        <!--<item name="android:minHeight">?attr/actionBarSize</item>-->
+        <item name="android:minHeight">@dimen/toolbar_min_height</item>
+        <item name="titleMargin">0dp</item>
+    </style>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--状态栏颜色-->
@@ -20,16 +27,16 @@
         <!--各个控制控件的默认颜色-->
         <item name="android:colorControlNormal">@color/colorControlNormal</item>
         <!--   <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>. -->
-      </style>
+    </style>
 
-      <style name="TabLayoutTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
-          <item name="android:textSize">16dp</item>
-      </style>
+    <style name="TabLayoutTextStyle" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
+        <item name="android:textSize">16dp</item>
+    </style>
 
-      <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
-          <item name="spinBars">true</item>
-          <item name="color">@android:color/white</item>
-      </style>
+    <style name="DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@android:color/white</item>
+    </style>
 
     <style name="Album.AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
@@ -72,7 +79,8 @@
         <item name="android:textColor">@color/albumFontLight</item>
         <item name="android:layout_margin">@dimen/album_dp_1</item>
     </style>
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-  </resources>
+</resources>

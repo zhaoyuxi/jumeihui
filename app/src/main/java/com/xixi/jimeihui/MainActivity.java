@@ -145,7 +145,7 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
         mtoolbar.setTitle(R.string.home_title);
         int color = ContextCompat.getColor(getBaseContext(),R.color.colorToolbarTitle);
         mtoolbar.setTitleTextColor(color);
-        setSupportActionBar(mtoolbar);
+        //setSupportActionBar(mtoolbar);
         //显示底部导航
         BottomNavigationBar bottomNavigationBar = (BottomNavigationBar) findViewById(R.id.bottom_navigation_bar);
         bottomNavigationBar.setMode(BottomNavigationBar.MODE_FIXED);
