@@ -6,29 +6,21 @@
     android:orientation="vertical"
     >
 
-    <LinearLayout
-        android:id="@+id/maincontainer"
+    <View xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/tabDivider"
+        style="@style/page_divider" />
+
+
+    <FrameLayout
+        android:id="@+id/maindfragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/windowBackground"></FrameLayout>
 
-        <include layout="@layout/common_toolbar" />
-        <View xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/tabDivider"
-            style="@style/page_divider" />
+    <View xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/navDivider"
+        style="@style/page_divider" />
 
-
-        <FrameLayout
-            android:id="@+id/maindfragment"
-            android:background="@color/windowBackground"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"></FrameLayout>
-
-        <View xmlns:android="http://schemas.android.com/apk/res/android"
-            android:id="@+id/navDivider"
-            style="@style/page_divider" />
-
-        <include layout="@layout/common_navigator" />
-    </LinearLayout>
+    <include layout="@layout/common_navigator" />
 </LinearLayout>

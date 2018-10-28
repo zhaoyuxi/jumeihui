@@ -167,8 +167,12 @@ public class NewActivity extends AppCompatActivity {
             et_new_content.requestFocus();
             //第二个参数可设置为0
             //imm.showSoftInput(et_content, InputMethodManager.SHOW_FORCED);//强制显示
-            imm.showSoftInputFromInputMethod(getCurrentFocus().getWindowToken(),
-                    InputMethodManager.SHOW_FORCED);
+            View view = getCurrentFocus();
+            if (view != null) {
+                //TODO logo 解决焦点为空问题
+                imm.showSoftInputFromInputMethod(view.getWindowToken(),
+                        InputMethodManager.SHOW_FORCED);
+            }
         }
     }
 

@@ -170,8 +170,8 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                         ImageView icon = (ImageView) rl.getChildAt(0);
                         TextView text = (TextView) rl.getChildAt(1);
                         setSelectIcon(icon, text);
-                        onNavigatorTabSelected(position);
                     }
+                    onNavigatorTabSelected(position);
                 }
             });
         }
@@ -211,10 +211,10 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
     public void initView() {
         initNavigator();
         //显示toolbar
-        mtoolbar = (Toolbar) findViewById(R.id.toolbar);
-        mtoolbar.setTitle(R.string.home_title);
+        //mtoolbar = (Toolbar) findViewById(R.id.toolbar);
+        //mtoolbar.setTitle(R.string.home_title);
         int color = ContextCompat.getColor(getBaseContext(), R.color.colorToolbarTitle);
-        mtoolbar.setTitleTextColor(color);
+        //mtoolbar.setTitleTextColor(color);
         //setSupportActionBar(mtoolbar);
         setDefaultFragment();
 

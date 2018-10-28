@@ -33,6 +33,9 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <!--各个控制控件的默认颜色-->
         <item name="android:colorControlNormal">@color/colorControlNormal</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
         <!--   <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>. -->
     </style>
 
