@@ -14,7 +14,7 @@
     <style name="page_divider">
         <item name="android:background">@color/divider</item>
         <item name="android:layout_width">fill_parent</item>
-        <item name="android:layout_height">0.5dip</item>
+        <item name="android:layout_height">@dimen/height_divider</item>
     </style>
 
     <!-- Base application theme. -->

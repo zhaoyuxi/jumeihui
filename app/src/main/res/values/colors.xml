@@ -11,7 +11,8 @@
     <color name="colorPrimaryDark">#00BFFF</color>
     <color name="colorPageBackground">#ffffff</color>
     <color name="colorToolbarTitle">#ffffff</color>
-    <color name="colorBottomNavigationBarBackground">#F5F5F5</color>
+    <!--<color name="colorBottomNavigationBarBackground">#F5F5F5</color>-->
+    <color name="colorBottomNavigationBarBackground">#FAFAFA</color>
 
     <color name="divider">#E0E0E0</color>
 

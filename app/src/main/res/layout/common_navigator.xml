@@ -16,6 +16,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/margin_top_navigator"
             android:src="@drawable/home_tabbar_selector" />
 
         <TextView
@@ -25,8 +26,9 @@
             android:layout_below="@+id/ivIconHome"
             android:layout_centerHorizontal="true"
             android:text="主页"
+            android:layout_marginBottom="@dimen/margin_buttom_navigator"
             android:textColor="@color/naviTabUnselectedText"
-            android:textSize="8dp" />
+            android:textSize="@dimen/text_size_navigator" />
 
         <TextView
             android:id="@+id/tvBadgeHome"
@@ -37,7 +39,7 @@
             android:gravity="center"
             android:text="1"
             android:textColor="@android:color/white"
-            android:textSize="8sp"
+            android:textSize="@dimen/text_size_navigator"
             android:visibility="gone"/>
     </RelativeLayout>
 
@@ -52,6 +54,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/margin_top_navigator"
             android:src="@drawable/picture_tabbar_selector" />
 
         <TextView
@@ -61,8 +64,9 @@
             android:layout_below="@+id/ivIconPicture"
             android:layout_centerHorizontal="true"
             android:text="图册"
+            android:layout_marginBottom="@dimen/margin_buttom_navigator"
             android:textColor="@color/naviTabUnselectedText"
-            android:textSize="8dp" />
+            android:textSize="@dimen/text_size_navigator" />
 
         <TextView
             android:id="@+id/tvBadgePicture"
@@ -73,7 +77,7 @@
             android:gravity="center"
             android:text="1"
             android:textColor="@android:color/white"
-            android:textSize="8sp"
+            android:textSize="@dimen/text_size_navigator"
             android:visibility="gone"/>
     </RelativeLayout>
 
@@ -88,6 +92,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/margin_top_navigator"
             android:src="@drawable/publish_tabbar_selector" />
 
         <TextView
@@ -97,8 +102,9 @@
             android:layout_below="@+id/ivIconPublish"
             android:layout_centerHorizontal="true"
             android:text="发布"
+            android:layout_marginBottom="@dimen/margin_buttom_navigator"
             android:textColor="@color/naviTabUnselectedText"
-            android:textSize="8dp" />
+            android:textSize="@dimen/text_size_navigator" />
 
         <TextView
             android:id="@+id/tvBadgePublish"
@@ -109,7 +115,7 @@
             android:gravity="center"
             android:text="1"
             android:textColor="@android:color/white"
-            android:textSize="8sp"
+            android:textSize="@dimen/text_size_navigator"
             android:visibility="gone"/>
     </RelativeLayout>
 
@@ -124,6 +130,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/margin_top_navigator"
             android:src="@drawable/video_tabbar_selector" />
 
         <TextView
@@ -133,8 +140,9 @@
             android:layout_below="@+id/ivIconVideo"
             android:layout_centerHorizontal="true"
             android:text="视频"
+            android:layout_marginBottom="@dimen/margin_buttom_navigator"
             android:textColor="@color/naviTabUnselectedText"
-            android:textSize="8dp" />
+            android:textSize="@dimen/text_size_navigator" />
 
         <TextView
             android:id="@+id/tvBadgeVideo"
@@ -145,7 +153,7 @@
             android:gravity="center"
             android:text="1"
             android:textColor="@android:color/white"
-            android:textSize="8sp"
+            android:textSize="@dimen/text_size_navigator"
             android:visibility="gone"/>
     </RelativeLayout>
 
@@ -160,6 +168,7 @@
             android:layout_height="30dp"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop"
+            android:layout_marginTop="@dimen/margin_top_navigator"
             android:src="@drawable/mine_tabbar_selector" />
 
         <TextView
@@ -168,9 +177,10 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/ivIconMine"
             android:layout_centerHorizontal="true"
-            android:text="视频"
+            android:text="我的"
+            android:layout_marginBottom="@dimen/margin_buttom_navigator"
             android:textColor="@color/naviTabUnselectedText"
-            android:textSize="8dp" />
+            android:textSize="@dimen/text_size_navigator" />
 
         <TextView
             android:id="@+id/tvBadgeMine"
@@ -181,7 +191,7 @@
             android:gravity="center"
             android:text="1"
             android:textColor="@android:color/white"
-            android:textSize="8sp"
+            android:textSize="@dimen/text_size_navigator"
             android:visibility="gone"/>
     </RelativeLayout>
 </LinearLayout>

@@ -80,7 +80,7 @@ public class PageFragment extends Fragment {
         adapter = new RecommendAdapter(newList, getContext());
         rv = (RecyclerView) view.findViewById(R.id.rv);
         rv.addItemDecoration(new RecycleViewDivider(
-                this.getContext(), LinearLayoutManager.VERTICAL, 2, getResources().getColor(R.color.divider)));
+                this.getContext(), LinearLayoutManager.VERTICAL, R.dimen.height_divider, getResources().getColor(R.color.divider)));
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh);
         swipeRefreshLayout.setRefreshing(true);
         createThread();
