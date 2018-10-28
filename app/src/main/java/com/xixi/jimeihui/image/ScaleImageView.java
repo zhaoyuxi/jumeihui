@@ -6,18 +6,25 @@ import android.content.res.TypedArray;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.RectF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View.MeasureSpec;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 import android.widget.RelativeLayout;
 
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.xixi.jimeihui.R;
 
 /**
  * This view will auto determine the width or height by determining if the
@@ -38,20 +45,20 @@ public class ScaleImageView extends SimpleDraweeView {
 
     public ScaleImageView(Context context) {
         super(context);
-        init();
+        init(context);
     }
 
     public ScaleImageView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
-        init();
+        init(context);
     }
 
     public ScaleImageView(Context context, AttributeSet attrs) {
         super(context, attrs);
-        init();
+        init(context);
     }
 
-    private void init() {
+    private void init(Context context) {
         this.setScaleType(ScaleType.CENTER_INSIDE);
     }
 
@@ -148,7 +155,6 @@ public class ScaleImageView extends SimpleDraweeView {
 
         }
     }
-
     @Override
     public void setImageURI(Uri uri) {
         BitmapFactory.Options options = new BitmapFactory.Options();
