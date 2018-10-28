@@ -10,6 +10,13 @@
         <item name="android:minHeight">@dimen/toolbar_min_height</item>
         <item name="titleMargin">0dp</item>
     </style>
+
+    <style name="page_divider">
+        <item name="android:background">@color/divider</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:layout_height">0.5dip</item>
+    </style>
+
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--状态栏颜色-->

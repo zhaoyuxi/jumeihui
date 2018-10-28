@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.xixi.jimeihui.MainActivity">
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:id="@+id/maincontainer"
@@ -14,27 +13,22 @@
         android:orientation="vertical">
 
         <include layout="@layout/common_toolbar" />
+        <View xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/tabDivider"
+            style="@style/page_divider" />
 
 
         <FrameLayout
             android:id="@+id/maindfragment"
             android:background="@color/windowBackground"
-            android:layout_marginTop="0dp"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"></FrameLayout>
 
-        <include layout="@layout/common_bottom_navigator" />
+        <View xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/navDivider"
+            style="@style/page_divider" />
+
+        <include layout="@layout/common_navigator" />
     </LinearLayout>
-
-    <android.support.design.widget.NavigationView
-        android:id="@+id/navigation_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="left"
-
-        app:menu="@menu/drawer"
-        android:background="#444d56"
-        app:itemTextColor="@color/white"
-      />
-</android.support.v4.widget.DrawerLayout>
+</LinearLayout>

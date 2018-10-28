@@ -13,6 +13,7 @@
     <color name="colorToolbarTitle">#ffffff</color>
     <color name="colorBottomNavigationBarBackground">#F5F5F5</color>
 
+    <color name="divider">#E0E0E0</color>
 
     <!--页面背景色-->
     <color name="windowBackground">#ffffff</color>
