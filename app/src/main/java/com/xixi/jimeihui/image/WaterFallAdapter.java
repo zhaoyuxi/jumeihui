@@ -58,8 +58,8 @@ public class WaterFallAdapter extends RecyclerView.Adapter {
         mFollowsData = new LinkedList<Follow>();
         for (PictureCard card :  mData) {
             Follow follow = new Follow();
-            follow.setHeadImage(card.avatarUrl);
-            follow.setName(card.name);
+            follow.setHeadImage(card.getAvatarUrl());
+            follow.setName(card.getName());
             mFollowsData.add(follow);
             if (mFollowsData.size() > 10) {
                 break;
@@ -106,7 +106,7 @@ public class WaterFallAdapter extends RecyclerView.Adapter {
             default:
                 ImageViewHolder imageHolder = (ImageViewHolder) holder;
                 PictureCard personCard = mData.get(position);
-                Uri uri = Uri.parse(personCard.avatarUrl);
+                Uri uri = Uri.parse(personCard.getAvatarUrl());
                 imageHolder.userAvatar.setImageURI(uri);
                 //ViewGroup.LayoutParams layout = holder2.userAvatar.getLayoutParams();
                 //layout.width = ViewGroup.LayoutParams.WRAP_CONTENT;
@@ -114,7 +114,7 @@ public class WaterFallAdapter extends RecyclerView.Adapter {
                 //layout.height = personCard.imgHeight;
                 //holder2.userAvatar.setMaxWidth(screenWidth);
                 //holder2.userAvatar.setMaxHeight(screenWidth*5);
-                imageHolder.userName.setText(personCard.name);
+                imageHolder.userName.setText(personCard.getName());
                 break;
         }
     }

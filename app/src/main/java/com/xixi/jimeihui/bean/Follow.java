@@ -16,9 +16,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 public class Follow  {
+    public static final int DisplayNameLength = 5;
     private String headImage; //头像
     private String name;
     private String userID;  //用户名ID
+    private String displayName;
 
     public String getHeadImage() {
         return headImage;
@@ -42,5 +44,17 @@ public class Follow  {
 
     public void setName(String name) {
         this.name = name;
+        setDisplayName(name);
+    }
+    public String getDisplayName() {
+        return displayName;
+    }
+
+    public void setDisplayName(String displayName) {
+        if (displayName.length() > DisplayNameLength) {
+            this.displayName = displayName.substring(0, DisplayNameLength) + "..";
+        } else {
+            this.displayName = displayName;
+        }
     }
 }

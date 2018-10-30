@@ -36,7 +36,7 @@ public class FollowAdapter extends RecyclerView.Adapter {
         FollowViewHolder hld = (FollowViewHolder) holder;
         Follow item = mData.get(position);
         hld.head.setImageURI(item.getHeadImage());
-        hld.userName.setText(item.getName());
+        hld.userName.setText(item.getDisplayName());
     }
 
 

@@ -75,8 +75,8 @@ public class ImagePageFragmentPage extends Fragment {
         mFollowsData = new LinkedList<Follow>();
         for (PictureCard card :  imageUrls) {
             Follow follow = new Follow();
-            follow.setHeadImage(card.avatarUrl);
-            follow.setName(card.name);
+            follow.setHeadImage(card.getAvatarUrl());
+            follow.setName(card.getName());
             mFollowsData.add(follow);
             if (mFollowsData.size() > 10) {
                 break;
@@ -106,10 +106,9 @@ public class ImagePageFragmentPage extends Fragment {
                     long id = c.getLong( c.getColumnIndex( MediaStore.Images.Media._ID ) );
                     Uri imageUri = Uri.parse( MediaStore.Images.Media.EXTERNAL_CONTENT_URI + "/" + id );
                     PictureCard card = new PictureCard();
-                    card.avatarUrl = imageUri.toString();
-                    card.name = "还在追梦的老男人";
-                    card.imgHeight = 200;
-                    card.imgHeight = (index++ % 2)*100 + 400; //偶数和奇数的图片设置不同的高度，以到达错开的目的
+                    card.setAvatarUrl(imageUri.toString());
+                    card.setName("还在追梦的老男人");
+                    //card.imgHeight = 200;
                     imageUrls.add(card);
                     //imageUrls.add(getRealFilePath(MainActivity.this, imageUri));
                 } while (c.moveToNext());
