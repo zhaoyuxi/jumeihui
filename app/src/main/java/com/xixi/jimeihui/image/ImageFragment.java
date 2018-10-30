@@ -28,13 +28,13 @@ public class ImageFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.image_fragment, container, false);
-        initView(rootView);
+        initView(rootView, container);
         return rootView;
     }
 
-    public void initView(View rootView) {
+    public void initView(View rootView, ViewGroup container) {
         ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.viewPager);
-        adapter = new ImageFragmentPagerAdapter(getChildFragmentManager(), getContext());
+        adapter = new ImageFragmentPagerAdapter(getChildFragmentManager(), container, getContext());
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(7);
 

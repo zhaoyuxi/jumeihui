@@ -4,14 +4,17 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.view.ViewGroup;
 
 
 public class ImageFragmentPagerAdapter extends FragmentPagerAdapter {
     private String[] titles = new String[]{"关注","推荐","知识","游玩","美食","心灵鸡汤","养生","汽车"};
     private Context context;
+    private ViewGroup mContainer;
 
-    public ImageFragmentPagerAdapter(FragmentManager fm, Context context) {
+    public ImageFragmentPagerAdapter(FragmentManager fm, ViewGroup container, Context context) {
         super(fm);
+        mContainer = container;
         this.context = context;
     }
 
@@ -19,7 +22,7 @@ public class ImageFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return ImagePageFragmentPage.newInstance();
+        return ImagePageFragmentPage.newInstance(mContainer);
     }
 
     @Override

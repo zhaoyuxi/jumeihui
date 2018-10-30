@@ -12,8 +12,8 @@
     <dimen name="activity_margin_10">10dp</dimen>
     <dimen name="activity_margin_16">16dp</dimen>
 
-    <dimen name="margin_top_toolbar">5dp</dimen>
-    <dimen name="margin_buttom_toolbar">5dp</dimen>
+    <dimen name="margin_top_toolbar">10dp</dimen>
+    <dimen name="margin_buttom_toolbar">10dp</dimen>
 
     <dimen name="margin_top_navigator">3dp</dimen>
     <dimen name="margin_buttom_navigator">3dp</dimen>

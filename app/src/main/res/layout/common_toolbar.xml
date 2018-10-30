@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/llToolbar"
     android:layout_width="match_parent"
+    android:layout_min_height="48dp"
     android:layout_height="wrap_content"
     android:background="@color/colorToolbarBackground"
     android:orientation="horizontal">
@@ -14,6 +15,7 @@
         android:layout_marginTop="@dimen/margin_top_toolbar"
         android:layout_marginBottom="@dimen/margin_buttom_toolbar"
         android:textColor="@color/colorToolbarTitle"
+        android:gravity="center_vertical"
         android:textSize="@dimen/text_size_toolbar" />
 
     <ImageView
@@ -22,6 +24,7 @@
         android:layout_height="30dp"
         android:layout_marginTop="@dimen/margin_top_toolbar"
         android:layout_marginBottom="@dimen/margin_buttom_toolbar"
+        android:gravity="center_vertical"
         android:layout_alignParentRight="true"
         android:layout_marginRight="10dp"
         android:scaleType="centerCrop"
