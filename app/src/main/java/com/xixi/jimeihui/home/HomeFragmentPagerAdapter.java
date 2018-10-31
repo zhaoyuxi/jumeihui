@@ -7,14 +7,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
 import com.xixi.jimeihui.allfragment.PageFragment;
+import com.xixi.jimeihui.definition.Category;
 
 
 public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
-    private String[] titles = new String[]{"关注","推荐","知识","游玩","美食","心灵","鸡汤","养生","汽车"};
+    private String[] titles;
     private Context context;
 
     public HomeFragmentPagerAdapter(FragmentManager fm, Context context) {
         super(fm);
+        titles = Category.getHomeCategory();
         this.context = context;
     }
 

@@ -6,14 +6,17 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.view.ViewGroup;
 
+import com.xixi.jimeihui.definition.Category;
+
 
 public class ImageFragmentPagerAdapter extends FragmentPagerAdapter {
-    private String[] titles = new String[]{"关注","推荐","知识","游玩","美食","心灵鸡汤","养生","汽车"};
+    private String[] titles;
     private Context context;
     private ViewGroup mContainer;
 
     public ImageFragmentPagerAdapter(FragmentManager fm, ViewGroup container, Context context) {
         super(fm);
+        titles = Category.getImageCategory();
         mContainer = container;
         this.context = context;
     }
