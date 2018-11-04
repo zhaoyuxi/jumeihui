@@ -36,6 +36,11 @@ android {
     sourceSets {
         main {
             res.srcDirs = [
+                    'src/main/res/layout/home',
+                    'src/main/res/layout/image',
+                    'src/main/res/layout/video',
+                    'src/main/res/layout/publish',
+                    'src/main/res/layout/mine',
                     'src/main/res/layout/follow',
                     'src/main/res/layout',
                     'src/main/res'
@@ -91,6 +96,7 @@ dependencies {
     implementation project(':PinterestLikeAdapterView')
     implementation project(':album')
     implementation project(':xrichtext')
+    implementation project(":comm")
 
     //图片选择器 https://github.com/donglua/PhotoPicker
     //implementation 'me.iwf.photopicker:PhotoPicker:0.8.4@aar'
