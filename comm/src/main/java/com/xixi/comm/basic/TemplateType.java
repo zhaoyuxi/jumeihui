@@ -20,6 +20,9 @@ public enum TemplateType {
         allTypes.add(WordsTop1ImageBelow);
         allTypes.add(WordsTop3ImageBelow);
     }
+    public static int size() {
+        return allTypes.size();
+    }
     private TemplateType(int index, String type) {
         mIndex = index;
         mType = type;

@@ -12,8 +12,11 @@
             <option value="$PROJECT_DIR$/PinterestLikeAdapterView" />
             <option value="$PROJECT_DIR$/album" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/client" />
             <option value="$PROJECT_DIR$/comm" />
             <option value="$PROJECT_DIR$/comment" />
+            <option value="$PROJECT_DIR$/simulator" />
+            <option value="$PROJECT_DIR$/tester" />
             <option value="$PROJECT_DIR$/xrichtext" />
           </set>
         </option>

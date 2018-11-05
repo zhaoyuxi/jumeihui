@@ -67,6 +67,9 @@ public class Works {
     public void setCommentsCounter(String commentsCounter) {
         this.commentsCounter = commentsCounter;
     }
+    public void setCommentsCounter(int commentsCounter) {
+        this.commentsCounter =  String.valueOf(commentsCounter)+"评论";
+    }
     public String getTitle() {
         return title;
     }
@@ -76,7 +79,7 @@ public class Works {
     public String getTemplateType() {
         return templateType;
     }
-    public void setTemplateType(String templateType) {
-        this.templateType = templateType;
+    public void setTemplateType(TemplateType templateType) {
+        this.templateType = templateType.toString();
     }
 }

@@ -24,7 +24,7 @@ public class HomeFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return PageFragment.newInstance();
+        return HomeTabFragment.newInstance();
     }
 
     @Override
