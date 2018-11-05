@@ -107,7 +107,7 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
     }
 
     public void add(List<ArticleWorks> newlist) {
-        Collections.addAll(newlist);
+        lists.addAll(newlist);
     }
 
     //点击接口

@@ -82,4 +82,7 @@ public class Works {
     public void setTemplateType(TemplateType templateType) {
         this.templateType = templateType.toString();
     }
+    public void setTemplateType(String templateType) {
+        this.templateType = templateType;
+    }
 }

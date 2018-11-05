@@ -16,12 +16,12 @@ import android.widget.TextView;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.TypeReference;
 import com.xixi.client.ResultNotification;
-import com.xixi.client.testerclient.TesterClient;
 import com.xixi.comm.home.ArticleWorks;
 import com.xixi.jimeihui.Interface.OnItemClickListener;
 import com.xixi.jimeihui.PathRandom;
 import com.xixi.jimeihui.R;
 import com.xixi.jimeihui.allfragment.RecycleViewDivider;
+import com.xixi.tester.TesterClient;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -68,6 +68,18 @@ public class HomeTabFragment extends Fragment {
         rv = (RecyclerView) view.findViewById(R.id.rv);
         rv.addItemDecoration(new RecycleViewDivider(
                 this.getContext(), LinearLayoutManager.VERTICAL, R.dimen.height_divider, getResources().getColor(R.color.divider)));
+        adapter.add(newList);
+        //设置点击事件
+        adapter.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                //Intent i = new Intent(getContext(), ArticleContentShow.class);
+                //i.putExtra("share_url", "http://www.toutiao.com" + newList.get(position).getGroup_id());
+                //startActivity(i);
+            }
+        });
+        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv.setAdapter(adapter);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh);
         swipeRefreshLayout.setRefreshing(true);
         createThread();
@@ -120,19 +132,8 @@ public class HomeTabFragment extends Fragment {
             List<ArticleWorks> works = JSON.parseObject(str, new TypeReference<ArrayList<ArticleWorks>>() {
             });
             adapter.add(works);
-            //设置点击事件
-            adapter.setOnItemClickListener(new OnItemClickListener() {
-                @Override
-                public void onClick(View view, int position) {
-                    //Intent i = new Intent(getContext(), ArticleContentShow.class);
-                    //i.putExtra("share_url", "http://www.toutiao.com" + newList.get(position).getGroup_id());
-                    //startActivity(i);
-                }
-            });
-            rv.setLayoutManager(new LinearLayoutManager(getContext()));
-            rv.setAdapter(adapter);
             swipeRefreshLayout.setRefreshing(false);
-
+            adapter.notifyDataSetChanged();
         }
     };
 }
