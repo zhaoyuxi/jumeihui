@@ -3,8 +3,8 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_marginLeft="8dp"
-    android:layout_marginTop="4dp"
     android:layout_marginRight="8dp"
+    android:layout_marginTop="4dp"
     android:layout_marginBottom="4dp"
     android:orientation="vertical">
 
@@ -42,10 +42,11 @@
                     android:layout_width="150dp"
                     android:layout_height="73dp"
                     android:layout_weight="1"
-                    android:gravity="right" />
+                    android:gravity="right"
+                    android:scaleType="centerCrop" />
             </LinearLayout>
 
-            <include layout="@layout/template_footer"  />
+            <include layout="@layout/template_footer" />
         </LinearLayout>
     </RelativeLayout>
 </LinearLayout>

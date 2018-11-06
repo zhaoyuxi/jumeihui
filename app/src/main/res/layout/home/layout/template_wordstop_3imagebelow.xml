@@ -4,6 +4,8 @@
     android:layout_height="wrap_content"
     android:layout_marginBottom="4dp"
     android:layout_marginTop="4dp"
+    android:layout_marginLeft="8dp"
+    android:layout_marginRight="8dp"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -41,26 +43,30 @@
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp">
                 <ImageView
                     android:id="@+id/image1"
                     android:layout_width="90dp"
                     android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"/>
                 <ImageView
                     android:id="@+id/image2"
                     android:layout_width="90dp"
                     android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"/>
                 <ImageView
                     android:id="@+id/image3"
                     android:layout_width="90dp"
                     android:layout_height="75dp"
                     android:layout_marginLeft="8dp"
                     android:layout_marginRight="8dp"
-                    android:layout_weight="1"/>
+                    android:layout_weight="1"
+                    android:scaleType="centerCrop"/>
             </LinearLayout>
 
             <include layout="@layout/template_footer"  />
