@@ -43,7 +43,8 @@
                     android:layout_height="73dp"
                     android:layout_weight="1"
                     android:gravity="right"
-                    android:scaleType="centerCrop" />
+                    android:scaleType="centerCrop"
+                    android:layout_marginLeft="8dp"/>
             </LinearLayout>
 
             <include layout="@layout/template_footer" />
