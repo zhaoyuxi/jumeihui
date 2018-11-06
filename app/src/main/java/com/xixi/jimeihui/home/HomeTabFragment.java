@@ -66,8 +66,10 @@ public class HomeTabFragment extends Fragment {
         newList = new ArrayList<ArticleWorks>();
         adapter = new HomeTabFragmentContentAdapter(newList, getContext());
         rv = (RecyclerView) view.findViewById(R.id.rv);
+        //R.dimen.height_divider填写dividerHeight，会导致RecycleView只显示一列
+        int dividerHeight = getResources().getDimensionPixelOffset(R.dimen.height_divider);
         rv.addItemDecoration(new RecycleViewDivider(
-                this.getContext(), LinearLayoutManager.VERTICAL, R.dimen.height_divider, getResources().getColor(R.color.divider)));
+                this.getContext(), LinearLayoutManager.VERTICAL, dividerHeight, getResources().getColor(R.color.divider)));
         adapter.add(newList);
         //设置点击事件
         adapter.setOnItemClickListener(new OnItemClickListener() {
@@ -78,7 +80,7 @@ public class HomeTabFragment extends Fragment {
                 //startActivity(i);
             }
         });
-        rv.setLayoutManager(new LinearLayoutManager(getContext()));
+        rv.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
         rv.setAdapter(adapter);
         swipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.refresh);
         swipeRefreshLayout.setRefreshing(true);
