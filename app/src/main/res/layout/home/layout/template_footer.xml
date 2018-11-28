@@ -11,36 +11,15 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_weight="1"
-        android:layout_marginLeft="8dp"
         android:layout_marginBottom="4dp">
 
     <TextView
-        android:id="@+id/footer_src"
+        android:id="@+id/footer_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ellipsize="end"
         android:maxLines="1"
-        android:text="新闻源"
-        android:textColor="@color/homeComments"
-        android:textSize="12dp" />
-    <TextView
-        android:id="@+id/footer_comments_count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="2222条评论"
-        android:textColor="@color/homeComments"
-        android:textSize="12dp" />
-    <TextView
-        android:id="@+id/footer_publish_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="12dp"
-        android:ellipsize="end"
-        android:maxLines="1"
-        android:text="一小时前"
+        android:text="新闻源 2222条评论 一小时前"
         android:textColor="@color/homeComments"
         android:textSize="12dp" />
     </LinearLayout>

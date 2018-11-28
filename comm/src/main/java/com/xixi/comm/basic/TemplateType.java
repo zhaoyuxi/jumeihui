@@ -8,6 +8,7 @@ public enum TemplateType {
     WordsLeftImageRight(1, "左文右图"),
     WordsTop1ImageBelow(2, "上文下1图"),
     WordsTop3ImageBelow(3, "上文下3图"),
+    Video(4, "短视频"),
     Unknown(255, "未知");
 
     private int mIndex;
@@ -19,6 +20,7 @@ public enum TemplateType {
         allTypes.add(WordsLeftImageRight);
         allTypes.add(WordsTop1ImageBelow);
         allTypes.add(WordsTop3ImageBelow);
+        //allTypes.add(Video);
     }
     public static int size() {
         return allTypes.size();

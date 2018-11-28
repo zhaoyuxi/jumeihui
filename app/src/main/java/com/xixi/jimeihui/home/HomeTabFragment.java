@@ -6,6 +6,7 @@ import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -42,9 +43,11 @@ public class HomeTabFragment extends Fragment {
     private RecyclerView rv;
     private SwipeRefreshLayout swipeRefreshLayout;
     private View view;
+    private AppCompatActivity activity;
 
-    public static HomeTabFragment newInstance() {
+    public static HomeTabFragment newInstance(AppCompatActivity activity) {
         HomeTabFragment fragment = new HomeTabFragment();
+        fragment.activity = activity;
         return fragment;
     }
 
@@ -64,7 +67,7 @@ public class HomeTabFragment extends Fragment {
 
     public void initView() {
         newList = new ArrayList<ArticleWorks>();
-        adapter = new HomeTabFragmentContentAdapter(newList, getContext());
+        adapter = new HomeTabFragmentContentAdapter(newList, getContext(), activity);
         rv = (RecyclerView) view.findViewById(R.id.rv);
         //R.dimen.height_divider填写dividerHeight，会导致RecycleView只显示一列
         int dividerHeight = getResources().getDimensionPixelOffset(R.dimen.height_divider);

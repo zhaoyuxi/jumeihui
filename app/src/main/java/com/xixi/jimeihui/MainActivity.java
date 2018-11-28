@@ -37,6 +37,7 @@ import com.xixi.jimeihui.utils.permission.PermissionListener;
 import com.xixi.jimeihui.utils.ui.FragmentController;
 import com.xixi.jimeihui.utils.ui.SwiftAdaptor;
 import com.xixi.jimeihui.video.VideoManager;
+import com.xixi.jimeihui.video.ViewPagerLayoutManagerActivity;
 
 import java.util.List;
 
@@ -98,6 +99,7 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         homeFragment = new HomeFragment();
+        homeFragment.setActivity(this);
         videoFragment = new VideoFragment();
 
         //初始化
@@ -199,6 +201,9 @@ MainActivity extends BaseAppCompatActivity implements BottomNavigationBar.OnTabS
                 ft.replace(R.id.maindfragment, videoFragment).commit();
                 break;
         }
+    }
+    public void startVideoActivity() {
+        startActivity(new Intent(MainActivity.this, ViewPagerLayoutManagerActivity.class));
     }
 
     private void setSelectIcon(ImageView iv, TextView tv) {

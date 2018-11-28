@@ -60,6 +60,8 @@
             android:name=".editor.NewActivity"
             android:label="@string/publish_title"
             android:windowSoftInputMode="stateHidden|adjustResize" />
+        <activity android:name=".video.ViewPagerLayoutManagerActivity"
+            android:theme="@style/AppTheme.Skid_1" />
     </application>
 
 </manifest>

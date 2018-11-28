@@ -9,6 +9,17 @@ public class Works {
     private String commentsCounter;
     private String title;
     private String templateType;
+    private String footerText;
+    public String getFooterText() {
+        if (footerText == null) {
+            footerText = authorName + " " + commentsCounter + " " + strPublishTimeStamp;
+        }
+        return footerText;
+    }
+
+    public void setFooterText(String footerText) {
+        this.footerText = footerText;
+    }
 
     public String getWorksType() {
         return worksType;

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,9 +30,12 @@ public class HomeFragment extends Fragment {
     Unbinder unbinder;
     private View rootView;
     private HomeFragmentPagerAdapter adapter;
+    private AppCompatActivity activity;
 
     public HomeFragment() {
-
+    }
+    public void setActivity(AppCompatActivity activity) {
+        this.activity = activity;
     }
 
     @Override
@@ -45,7 +49,7 @@ public class HomeFragment extends Fragment {
 
     public void initView(View rootView) {
         ViewPager viewPager = (ViewPager) rootView.findViewById(R.id.viewPager);
-        adapter = new HomeFragmentPagerAdapter(getChildFragmentManager(), getContext());
+        adapter = new HomeFragmentPagerAdapter(getChildFragmentManager(), getContext(), activity);
         viewPager.setAdapter(adapter);
         viewPager.setOffscreenPageLimit(7);
 

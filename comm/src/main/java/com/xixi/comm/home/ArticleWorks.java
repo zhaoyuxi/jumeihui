@@ -7,6 +7,7 @@ public class ArticleWorks extends Works {
     private String image1URL;
     private String image2URL;
     private String image3URL;
+    private String videoURL;
 
     public String getImage1URL() {
         return image1URL;
@@ -38,5 +39,13 @@ public class ArticleWorks extends Works {
 
     public void setArticleType(String articleType) {
         this.articleType = articleType;
+    }
+
+    public String getVideoURL() {
+        return videoURL;
+    }
+
+    public void setVideoURL(String videoURL) {
+        this.videoURL = videoURL;
     }
 }

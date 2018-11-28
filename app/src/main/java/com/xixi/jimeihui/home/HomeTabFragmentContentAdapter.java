@@ -1,6 +1,8 @@
 package com.xixi.jimeihui.home;
 
 import android.content.Context;
+import android.content.Intent;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,20 +14,25 @@ import com.xixi.comm.basic.TemplateType;
 import com.xixi.comm.basic.Works;
 import com.xixi.comm.home.ArticleWorks;
 import com.xixi.jimeihui.Interface.OnItemClickListener;
+import com.xixi.jimeihui.MainActivity;
 import com.xixi.jimeihui.R;
 import com.xixi.jimeihui.extra.ImgLoader;
+import com.xixi.jimeihui.video.VideoActivity;
+import com.xixi.jimeihui.video.ViewPagerLayoutManagerActivity;
 
-import java.util.Collections;
 import java.util.List;
 
 public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
     private List<ArticleWorks> lists;
     private OnItemClickListener onItemClickListener;
     private Context context;
+    private AppCompatActivity activity;
 
-    public HomeTabFragmentContentAdapter(List<ArticleWorks> lists, Context context) {
+
+    public HomeTabFragmentContentAdapter(List<ArticleWorks> lists, Context context, AppCompatActivity activity) {
         this.lists = lists;
         this.context = context;
+        this.activity = activity;
     }
 
     @Override
@@ -53,6 +60,10 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_wordstop_3imagebelow, parent, false);
                 return new WordsTop3ImageBelowView(view, onItemClickListener);
             }
+            case Video:{
+                View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_video, parent, false);
+                return new VideoView(view, onItemClickListener);
+            }
             case Unknown:
             default:
                 // TODO Logo
@@ -65,9 +76,7 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
         Works works = lists.get(position);
         WorksView worksView = (WorksView) holder;
         worksView.setTitle(works.getTitle());
-        worksView.setFooterSource(works.getAuthorName());
-        worksView.setFooterCommentsCounter(works.getCommentsCounter());
-        worksView.setFooterPublishTime(works.getStrPublishTimeStamp());
+        worksView.setFooterSource(works.getFooterText());
 
         switch (TemplateType.toTemplateType(((ArticleWorks) works).getTemplateType())) {
             case FullWords: {
@@ -92,6 +101,13 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
                 new ImgLoader(context).disPlayimg(articleWorks.getImage1URL(), vh.imageView1);
                 new ImgLoader(context).disPlayimg(articleWorks.getImage2URL(), vh.imageView2);
                 new ImgLoader(context).disPlayimg(articleWorks.getImage3URL(), vh.imageView3);
+                break;
+            }
+            case Video:{
+                worksView.setFooterSource("SHIPIN " + works.getFooterText());
+                VideoView vh = (VideoView) holder;
+                ArticleWorks articleWorks = (ArticleWorks) works;
+                new ImgLoader(context).disPlayimg(articleWorks.getImage1URL(), vh.imageView);
                 break;
             }
             case Unknown:
@@ -128,18 +144,8 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
             this.footerSource.setText(footerSource);
         }
 
-        public void setFooterCommentsCounter(String footerCommentsCounter) {
-            this.footerCommentsCounter.setText(footerCommentsCounter);
-        }
-
-        public void setFooterPublishTime(String footerPublishTime) {
-            this.footerPublishTime.setText(footerPublishTime);
-        }
-
         private TextView title;
         private TextView footerSource;
-        private TextView footerCommentsCounter;
-        private TextView footerPublishTime;
 
         private OnItemClickListener onItemClickListener = null;
 
@@ -147,9 +153,8 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
             super(itemView);
             worksView = itemView;
             title = (TextView) worksView.findViewById(R.id.title);
-            footerSource = (TextView) worksView.findViewById(R.id.footer_src);
-            footerCommentsCounter = (TextView) worksView.findViewById(R.id.footer_comments_count);
-            footerPublishTime = (TextView) worksView.findViewById(R.id.footer_publish_time);
+            footerSource = (TextView) worksView.findViewById(R.id.footer_text);
+
 
             //点击事件
             this.onItemClickListener = onItemClickListener;
@@ -158,6 +163,7 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
+            ((MainActivity)activity).startVideoActivity();
             if (onItemClickListener != null) {
                 onItemClickListener.onClick(v, getLayoutPosition());
             }
@@ -207,6 +213,20 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
             imageView1 = (ImageView) itemView.findViewById(R.id.image1);
             imageView2 = (ImageView) itemView.findViewById(R.id.image2);
             imageView3 = (ImageView) itemView.findViewById(R.id.image3);
+        }
+    }
+
+    class VideoView extends WorksView {
+        private ImageView imageView;
+
+        public VideoView(View itemView, OnItemClickListener onItemClickListener) {
+            super(itemView, onItemClickListener);
+            imageView = (ImageView) itemView.findViewById(R.id.image);
+        }
+        @Override
+        public void onClick(View v) {
+            //onItemClickListener.onClick(v, getLayoutPosition());
+            ((MainActivity)activity).startVideoActivity();
         }
     }
 }
