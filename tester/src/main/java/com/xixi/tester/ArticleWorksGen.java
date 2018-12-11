@@ -69,7 +69,8 @@ final public class ArticleWorksGen {
                 }
                 case Video:{
                     works.setImage1URL(images[ra.nextInt(images.length)]);
-                    works.setVideoURL("");
+                    works.setVideoURL(images[ra.nextInt(images.length)]);
+                    break;
                 }
                 case Unknown:
                 default:

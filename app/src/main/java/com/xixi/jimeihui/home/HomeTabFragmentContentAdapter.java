@@ -2,13 +2,20 @@ package com.xixi.jimeihui.home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.MediaController;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+import android.widget.VideoView;
 
 import com.xixi.comm.basic.TemplateType;
 import com.xixi.comm.basic.Works;
@@ -60,9 +67,9 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_wordstop_3imagebelow, parent, false);
                 return new WordsTop3ImageBelowView(view, onItemClickListener);
             }
-            case Video:{
+            case Video: {
                 View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.template_video, parent, false);
-                return new VideoView(view, onItemClickListener);
+                return new MyVideoView(view, onItemClickListener);
             }
             case Unknown:
             default:
@@ -103,11 +110,12 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
                 new ImgLoader(context).disPlayimg(articleWorks.getImage3URL(), vh.imageView3);
                 break;
             }
-            case Video:{
+            case Video: {
                 worksView.setFooterSource("SHIPIN " + works.getFooterText());
-                VideoView vh = (VideoView) holder;
+                final MyVideoView vh = (MyVideoView) holder;
                 ArticleWorks articleWorks = (ArticleWorks) works;
-                new ImgLoader(context).disPlayimg(articleWorks.getImage1URL(), vh.imageView);
+                vh.initVideoView(articleWorks);
+                //new ImgLoader(context).disPlayimg(articleWorks.getImage1URL(), vh.thumbnail);
                 break;
             }
             case Unknown:
@@ -123,7 +131,9 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
     }
 
     public void add(List<ArticleWorks> newlist) {
-        lists.addAll(0, newlist);
+        if (newlist !=null && !newlist.isEmpty()) {
+            lists.addAll(0, newlist);
+        }
     }
 
     //点击接口
@@ -163,7 +173,7 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
 
         @Override
         public void onClick(View v) {
-            ((MainActivity)activity).startVideoActivity();
+            //((MainActivity) activity).startVideoActivity();
             if (onItemClickListener != null) {
                 onItemClickListener.onClick(v, getLayoutPosition());
             }
@@ -216,17 +226,60 @@ public class HomeTabFragmentContentAdapter extends RecyclerView.Adapter {
         }
     }
 
-    class VideoView extends WorksView {
-        private ImageView imageView;
+    class MyVideoView extends WorksView {
+        private ImageView thumbnail;
+        private final VideoView videoView;
+        private final  int[] imgs = {R.mipmap.img_video_1,R.mipmap.img_video_2};
+        private final int[] videos = {R.raw.video_1,R.raw.video_2};
+        private View itemView;
+        private int position;
 
-        public VideoView(View itemView, OnItemClickListener onItemClickListener) {
+        public MyVideoView(View itemView, OnItemClickListener onItemClickListener) {
             super(itemView, onItemClickListener);
-            imageView = (ImageView) itemView.findViewById(R.id.image);
+            this.itemView = itemView;
+            videoView = (VideoView) itemView.findViewById(R.id.video);
+            //video.setback
         }
+
         @Override
         public void onClick(View v) {
             //onItemClickListener.onClick(v, getLayoutPosition());
-            ((MainActivity)activity).startVideoActivity();
+            //((MainActivity) activity).startVideoActivity();
+        }
+
+        private void initVideoView(ArticleWorks articleWorks) {
+            videoView.setVideoURI(Uri.parse("android.resource://"+itemView.getContext().getPackageName()+"/"+ videos[position%2]));
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_TOP);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            videoView.setLayoutParams(layoutParams);
+            //设置视频控制器
+            videoView.setMediaController(new MediaController(activity));
+
+            //设置点击事件，OnClickListener不好用
+            videoView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent event) {
+                    //Toast.makeText(application, "" + vh.videoView.isPlaying(), Toast.LENGTH_SHORT).show();
+                    if (videoView.isPlaying()) {
+                        videoView.pause();
+                    } else {
+                        videoView.start();
+                    }
+                    return false;
+                }
+            });
+
+            //设置循环播放
+            videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                @Override
+                public void onCompletion(MediaPlayer mp) {
+                    mp.start();
+                    mp.setLooping(true);
+                }
+            });
         }
     }
 }

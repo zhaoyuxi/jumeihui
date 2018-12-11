@@ -20,7 +20,7 @@ public enum TemplateType {
         allTypes.add(WordsLeftImageRight);
         allTypes.add(WordsTop1ImageBelow);
         allTypes.add(WordsTop3ImageBelow);
-        //allTypes.add(Video);
+        allTypes.add(Video);
     }
     public static int size() {
         return allTypes.size();

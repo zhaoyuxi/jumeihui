@@ -73,7 +73,7 @@ public class HomeTabFragment extends Fragment {
         int dividerHeight = getResources().getDimensionPixelOffset(R.dimen.height_divider);
         rv.addItemDecoration(new RecycleViewDivider(
                 this.getContext(), LinearLayoutManager.VERTICAL, dividerHeight, getResources().getColor(R.color.divider)));
-        adapter.add(newList);
+        //adapter.add(newList);
         //设置点击事件
         adapter.setOnItemClickListener(new OnItemClickListener() {
             @Override
